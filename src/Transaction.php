@@ -75,14 +75,23 @@
 					->setAction( 'initialize' )
 					->sendRequest( $data );
 
-			// Initialize a new Obj to save Striped response
-			$response                   = new \stdClass();
-			$response->authorizationUrl = $this->transactionResponse['initialize']->data->authorization_url;
-			$response->reference        = $this->transactionResponse['initialize']->data->reference;
 
 			if ( $rawResponse ) {
 				$response =
 					$this->transactionResponse['initialize'];
+			} else {
+				// Initialize a new Obj to save Striped response
+				$response = new \stdClass();
+				if ( isset( $this->transactionResponse['initialize']->data ) &&
+				     is_object( $this->transactionResponse['initialize']->data )
+				) {
+					$response->authorizationUrl = $this->transactionResponse['initialize']->data->authorization_url;
+					$response->reference        = $this->transactionResponse['initialize']->data->reference;
+				} else {
+					// return the raw response
+					$response =
+						$this->transactionResponse['initialize'];
+				}
 			}
 
 			return $response;
