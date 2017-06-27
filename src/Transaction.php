@@ -97,6 +97,14 @@
 			return $response;
 		}
 
+		/**
+		 * @param null $reference
+		 *
+		 * @todo Use session to keep reference temporary per transaction To enhance Transaction reference guessing.
+		 *
+		 * @return mixed
+		 * @throws \Exception
+		 */
 		public function verify( $reference = null )
 		{
 			// try to guess reference if not set

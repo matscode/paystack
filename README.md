@@ -1,5 +1,5 @@
 # matscode/paystack
-###### This package is for communicating with PAYSTACK RESTful API. 
+###### This package is for communicating with PAYSTACK RESTful API. [Paystack](https://paystack.com/)
 Having other resource point available on PAYSTACK API, Resources like; 
 - Transaction
 - Customers
@@ -9,7 +9,7 @@ Having other resource point available on PAYSTACK API, Resources like;
 - Charges
 - and many more
 
-Just to name a few, it is only the Transaction Resource that is made available currently in this package. Development is ongoing while releases are Stable. Incase you find a BUG/Security Issue, Please, do be kind to open an issue or email [matscode[at]gmail[dot]com](mailto://matscode@gmail.com)
+Just to name a few, it is only the Transaction Resource that is made available currently in this package. Development is ongoing while releases are Stable. Incase you find a BUG/Security Issue, Please, do be kind to open an issue or email [matscode-at-gmail-dot-com](mailto://matscode@gmail.com)
 
 ## Requirements
 - Curl 
@@ -63,7 +63,15 @@ $response =
             ->setAmount( 75000 ) // amount is treated in Naira while using this method
             ->initialize();
 ```
-
+If you want to get the 200OK raw Object as it is sent by Paystack, Set the 2nd argument of the `initialize()` to `true`, example below
+``` php
+// Set data to post using this method
+$response =
+        $Transaction 
+            ->setEmail( 'matscode@gmail.com' )
+            ->setAmount( 75000 ) // amount is treated in Naira while using this method
+            ->initialize([], true);
+```
 Now do a redirect to payment page (using authorization_url)
 <br>
 NOTE: Recommended to Debug `$response` or check if authorizationUrl is set, and save your Transaction reference code. useful to verify Transaction status
