@@ -1,0 +1,19 @@
+{
+    "name": "matscode/paystack",
+    "description": "This package is for communicating with PAYSTACK API",
+    "type": "library",
+    "keywords": ["payment","paystack", "php"],
+    "license": "GNU GPLv3",
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {"Matscode\\Paystack\\": "src/"}
+    },
+    "authors": [
+        {
+            "name": "Michael Akanji",
+            "email": "matscode@gmail.com",
+            "homepage": "http://michaelakanji.com"
+        }
+    ],
+    "require": {}
+}
