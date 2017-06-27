@@ -38,8 +38,8 @@
 			->initialize();
 
 	// print response
-	// Debug::print_r( $response );
+	 Debug::print_r( $response );
 
 	// save reference somewhere and do a redirect
-	Http::redirect($response->authorizationUrl);
+	 Http::redirect($response->authorizationUrl);
 
