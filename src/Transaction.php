@@ -113,7 +113,8 @@
 				if ( isset( $_GET['reference'] ) ) {
 					$reference = $_GET['reference'];
 				} else {
-					throw new \Exception( 'Pass reference code as argument to ' . __FUNCTION__ . ' method, it can not be guessed' );
+					// return false
+					return false;
 				}
 			}
 
