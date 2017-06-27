@@ -21,7 +21,7 @@ Just to name a few, it is only the Transaction Resource that is made available c
 ``` bash
 $ composer require matscode/paystack
 ```
-If you use a Framework, check your documentation for how vendor packages are autoloaded. Add this to the top of your source file;
+If you use a Framework, check your documentation for how vendor packages are autoloaded else Add this to the top of your source file;
 
 ``` php
 require_once __DIR__ . "/vendor/autoload.php";
