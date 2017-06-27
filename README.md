@@ -49,7 +49,7 @@ Set data/payload/requestBody to post with initialize request. Minimum required d
 $data = 
 [
     'email'  => 'customer@email.com',
-    'amount' => 500000 // amount must be in kobo using this method
+    'amount' => 500000 // amount is treated in kobo using this method
 ];
 $response = $Transaction->initialize($data);
 ```
@@ -60,7 +60,7 @@ $response =
         $Transaction
             ->setCallbackUrl('http://michaelakanji.com') // to override/set callback_url, it can also be set on your dashboard 
             ->setEmail( 'matscode@gmail.com' )
-            ->setAmount( 75000 ) // amount must be in Naira while using this method
+            ->setAmount( 75000 ) // amount is treated in Naira while using this method
             ->initialize();
 ```
 
