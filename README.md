@@ -90,9 +90,9 @@ Using a Framework? It is recommended you use the reverse routing/redirection fun
 This part would live in your callback file i.e `callback.php` or `whatsoever_you_name.php`
 <br>
 It is also imperative that you create Transaction Obj once more.
-
+<br>
+This method would return the Transaction Obj but `false` if saved `$reference` is not passed in as argument and also cant be guessed. Using `verify()` would require you do a manual check on the response Obj
 ``` php
-// This method would return the Transaction Obj but `false` on failure, it is required you do a manual check on the response Obj
 $response = $Transaction->verify();
 // Debuging the $response
 Debug::print_r( $response);
