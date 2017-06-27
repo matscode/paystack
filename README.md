@@ -9,7 +9,7 @@ Having other resource point available on PAYSTACK API, Resources like;
 - Charges
 - and many more
 
-Just to name a few, it is only the Transaction Resource that is made available currently in this package. Development is ongoing while releases are Stable. Incase you find a BUG/Security Issue, Please, do be kind to open an issue or email [matscode-at-gmail-dot-com](mailto://matscode@gmail.com)
+Just to name a few, it is only the Transaction Resource that is made available currently in this package. Development is ongoing while releases are Stable. Incase you find a BUG/Security Issue, Please, do be kind to open an issue or email [matscodeAtGmailDotCom](mailto://matscode@gmail.com)
 
 ## Requirements
 - Curl 
