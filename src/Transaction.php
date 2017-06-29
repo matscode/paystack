@@ -22,7 +22,11 @@
 			$amount = 0,
 			$email = null,
 			$reference = null,
-			$transactionResponse = [];
+			$transactionResponse =
+			[
+				'verify'     => null,
+				'initialize' => null
+			];
 
 		private
 			$_callbackUrl = null;
@@ -40,6 +44,14 @@
 			return $this;
 		}
 
+		/**
+		 * This method must be called to request for payment. which return an initial transaction obj
+		 *
+		 * @param array $data
+		 * @param bool  $rawResponse
+		 *
+		 * @return mixed|\stdClass
+		 */
 		public function initialize( array $data = [], $rawResponse = false )
 		{
 			// values set via mutator
@@ -98,6 +110,8 @@
 		}
 
 		/**
+		 * Is used to Check if a transaction is successful and return the transaction object datd
+		 *
 		 * @param null $reference
 		 *
 		 * @todo Use session to keep reference temporary per transaction To enhance Transaction reference guessing.
@@ -127,9 +141,11 @@
 		}
 
 		/**
+		 * Like verify(), but it only checks to see if a transactions is successful returning boolean
+		 *
 		 * @param null $reference
 		 *
-		 * @return mixed
+		 * @return bool
 		 */
 		public function isSuccessful( $reference = null )
 		{
@@ -148,6 +164,25 @@
 			}
 
 			return $isSuccessful;
+		}
+
+		/**
+		 * Compares the amount paid by customer to the amount passed into it
+		 *
+		 * @param $amountExpected
+		 *
+		 * @return bool
+		 */
+		public function amountEquals( $amountExpected )
+		{
+			// $this->verify(); // call verify() or isSuccessful() before calling this method
+			$transactionResponse = $this->transactionResponse['verify'];
+			if ( is_object( $transactionResponse ) ) {
+				return
+					( (int) $transactionResponse->data->amount === $amountExpected );
+			}
+
+			return false;
 		}
 
 		/**
@@ -209,6 +244,8 @@
 		}
 
 		/**
+		 * Sets the transaction reference code/id
+		 *
 		 * @param null $reference
 		 */
 		public function setReference( $reference )
@@ -234,6 +271,8 @@
 		}
 
 		/**
+		 * To set callback URL, can be used to override callback URL set on paystack dashboard
+		 *
 		 * @param string $callbackUrl
 		 *
 		 * @return $this
