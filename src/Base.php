@@ -20,10 +20,13 @@
 	{
 
 		private
-			$_apiBaseUrl = 'https://api.paystack.co/',
+			$_apiBaseUrl = 'https://api.paystack.co/', // with trailing slash
 			$_curl,
 			$_secretKey,
-			$_endPoint;
+			$_endPoint,
+
+			/*Getting Error Infomation*/
+			$_errorMessages = [];
 
 		public
 			$resource,
@@ -111,5 +114,39 @@
 			// this works only after executing sendRequest
 			return $this->_endPoint;
 		}
+
+		/**
+		 * @param mixed $errorMessages
+		 */
+		public function setErrorMessages( $errorMessages )
+		{
+			//if errorMessages is string
+			if ( is_string( $errorMessages ) ) {
+				$this->_errorMessages[] = $errorMessages;
+			}
+			//if errorMessages is array
+			if ( is_array( $errorMessages ) ) {
+				$this->_errorMessages = array_merge( $this->_errorMessages, $errorMessages );
+			}
+		}
+
+		/**
+		 * @param bool   $toString
+		 * @param string $delimiter
+		 *
+		 * @return array|string
+		 */
+		public function getErrorMessages( $toString = false, $delimiter = '<br>' )
+		{
+			$errorMessages = $this->_errorMessages;
+			if ( $toString ) {
+				// return errorMessage as String
+				unset( $errorMessages ); //to avoid datatype conflict
+				$errorMessages = join( $delimiter, $this->_errorMessages );
+			}
+
+			return $errorMessages;
+		}
+
 
 	}
