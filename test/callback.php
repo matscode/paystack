@@ -21,18 +21,23 @@
 	$Transaction = new Transaction( $secretKey );
 
 	// transaction can be verified by doing manual check on the response Obj
-
+	/*
 	$response = $Transaction->verify();
 
-	Debug::print_r( $response);
-
+	Debug::print_r( $response);*/
 
 	// OR
-	/*
 	$result = $Transaction->isSuccessful();
 
+	/*
 	Debug::print_r( $result);
 	*/
+
+	// To check if verified amount is the expected amount before giving value to customer
+
+	$result = $Transaction->amountEquals(5000); // amount in kobo
+
+	Debug::printStr( $result );
 
 
 	// Getting AuthorizationCode

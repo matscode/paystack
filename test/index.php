@@ -34,7 +34,7 @@
 	$response =
 		$Transaction
 			->setEmail( 'matscode@gmail.com' )
-			->setAmount( 750000 )
+			->setAmount( 50 )
 			->initialize();
 
 	// print response
