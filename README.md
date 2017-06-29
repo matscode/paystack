@@ -126,7 +126,7 @@ $response = $Transaction->authorizationCode($reference); // can also guess Trans
 ```
 
 ## Hire Me
-I am available on contract if you need help integration paystack into your Business Website or something.
+I am available on contract if you need help integrating paystack into your Business Website or something.
 <br>
 Contact me via my email above - [michaelakanji.com](http://michaelakanji.com)
 
