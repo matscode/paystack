@@ -9,8 +9,9 @@ Having other resource point available on PAYSTACK API, Resources like;
 - Charges
 - and many more
 
-Just to name a few, it is only the Transaction Resource that is made available currently in this package. Development is ongoing while releases are Stable. Incase you find a BUG/Security Issue, Please, do be kind to open an issue or email [matscodeA23456
-tGmailDotCom](mailto://matscode@gmail.com)
+Just to name a few, it is only the Transaction Resource that is made available currently in this package. Development is ongoing while releases are Stable. Incase you find a BUG/Security Issue, Please, do be kind to open an issue or email [matscode(at)Gmail(dot)Com](mailto://matscode@gmail.com).
+<br>
+**PS**: This library also works for you if you use paystack inline. You just have to use the `verify()` method, passing in your transaction `$reference|$token|$id` is compulsory.
 
 ## Requirements
 - Curl 
@@ -30,7 +31,7 @@ require_once __DIR__ . "/vendor/autoload.php";
 
 ## Making Transactions/Recieving Payment
 
-### Initialize Transaction
+### Starting Up Paystack Transaction
 
 ``` php
 use Matscode\Paystack\Transaction;
@@ -42,6 +43,8 @@ $secretKey = 'sk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
 // creating the transaction object
 $Transaction = new Transaction( $secretKey );
 ```
+
+### Initializing Transaction
 
 Set data/payload/requestBody to post with initialize request. Minimum required data are email and amount.
 
@@ -107,6 +110,12 @@ The two methods above try to guess your Transaction `$reference` but it is highl
 // This method does the check for you and return `(bool) true|false`
 $response = $Transaction->isSuccessful($reference);
 ```
+Moreso, you can also compare if amount paid by customer is the amount expected. This method only works after calling `verify()` or `isSuccessful()` in the same script. It is recommended to do this if you use paystack inline to initialize the transaction.
+``` php
+$amountExpected = 5000; // amount must be in kobo
+// returns `(bool) true|false`
+$Transaction->amountEquals($amountExpected);
+```
 Now you can process Customer Valuable.
 <br>
 <br>
@@ -115,6 +124,11 @@ You might wanna save Transaction `$authorizationCode` for the current customer s
 // returns Auth_xxxxxxx 
 $response = $Transaction->authorizationCode($reference); // can also guess Transaction $reference
 ```
+
+## Hire Me
+I am available on contract if you need help integration paystack into your Business Website or something.
+<br>
+Contact me via my email above - [michaelakanji.com](http://michaelakanji.com)
 
 ## Contributions
 If you seem to understand the architecture, you are welcome to fork and pull else you can wait a bit more till when i provide convention documentation.
