@@ -156,7 +156,7 @@
 			$isSuccessful = false;
 
 			// check if transaction is successful
-			if ( is_object( $response->data ) &&
+			if ( isset($response->data) && is_object( $response->data ) &&
 			     $response->status == true &&
 			     $response->data->status == 'success'
 			) {
