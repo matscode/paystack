@@ -24,7 +24,7 @@
 	// Set data to post using this method
 	/*
 	$response = $Transaction->initialize( [
-		'email'  => 'customer@email.com',
+		'email'  => 'customer@gmail.com',
 		'amount' => 500000
 	] );
 	*/
@@ -33,7 +33,7 @@
 
 	$response =
 		$Transaction
-			->setEmail( 'matscode@gmail.com' )
+			->setEmail( 'customer@gmail.com' )
 			->setAmount( 50 )
 			->initialize();
 
