@@ -1,4 +1,14 @@
 # matscode/paystack
+
+## TODO -RoadMap
+- `Use GuzzleHttp`
+- `Customers`
+- `Plans`
+- `Subscription`
+- `Transfers`
+- `Charges`
+- `others...`
+
 ###### This package is for communicating with PAYSTACK RESTful API. [Paystack](https://paystack.com/)
 Having other resource point available on PAYSTACK API, Resources like; 
 - Transaction
@@ -9,7 +19,7 @@ Having other resource point available on PAYSTACK API, Resources like;
 - Charges
 - and many more
 
-Just to name a few, it is only the Transaction Resource that is made available currently in this package. Development is ongoing while releases are Stable. Incase you find a BUG/Security Issue, Please, do be kind to open an issue or email [matscode(at)Gmail(dot)Com](mailto://matscode@gmail.com).
+Just to name a few, it is only the Transaction Resource that is made available currently in this package. Development is ongoing while releases are Stable. Incase you find a BUG/Security Issue, Please, do be kind to open an issue or email [matscode at Gmail dot Com](mailto://matscode@gmail.com).
 <br>
 **PS**: This library also works for you if you use paystack inline. You just have to use the `verify()` method, passing in your transaction `$reference|$token|$id` is compulsory.
 
