@@ -1,4 +1,4 @@
-# matscode/paystack
+# matscode/paystack-php
 
 #### TODO - RoadMap
 - `Use GuzzleHttp`
