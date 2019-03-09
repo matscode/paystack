@@ -7,7 +7,6 @@
 	 * @category       Source
 	 * @author         Michael Akanji <matscode@gmail.com>
 	 * @date           2017-06-27
-	 * @copyright (c)  2016 - 2017, TECRUM (http://www.tecrum.com)
 	 *
 	 */
 

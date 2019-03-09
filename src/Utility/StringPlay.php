@@ -14,7 +14,7 @@
 	namespace Matscode\Paystack\Utility;
 
 
-	class Text
+	class StringPlay
 	{
 		/**
 		 *
@@ -25,7 +25,7 @@
 		 *
 		 * @param int $capsMix
 		 *
-		 * @return bool|string
+		 * @return bool|StringPlay
 		 * @throws \Exception
 		 */
 		public static function uniqueRef( $length = 15, $capsMix = 5 )

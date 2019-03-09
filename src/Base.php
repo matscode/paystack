@@ -14,7 +14,7 @@
 	namespace Matscode\Paystack;
 
 	use Matscode\Paystack\CURL;
-	use Matscode\Paystack\Utility\Text;
+	use Matscode\Paystack\Utility\StringPlay;
 
 	class Base
 	{
@@ -84,8 +84,8 @@
 			$this->data = $withData;
 
 			$this->_endPoint = $this->_apiBaseUrl .
-			                   Text::removeSlashes( $this->resource ) . '/' .
-			                   Text::removeSlashes( $this->action );
+			                   StringPlay::removeSlashes( $this->resource ) . '/' .
+			                   StringPlay::removeSlashes( $this->action );
 			// append parameters to endPoint
 			if ( count( $this->args ) > 0 ) {
 				$this->_endPoint .= '/' . implode( '/', $this->args );
