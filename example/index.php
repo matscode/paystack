@@ -1,44 +1,44 @@
 <?php
-	/**
-	 *
-	 * Description
-	 *
-	 * @package        Paystack
-	 * @category       Source
-	 * @author         Michael Akanji <matscode@gmail.com>
-	 * @date           2017-06-26
-	 *
-	 */
-	require_once "../vendor/autoload.php";
+/**
+ *
+ * Description
+ *
+ * @package        Paystack
+ * @category       Source
+ * @author         Michael Akanji <matscode@gmail.com>
+ * @date           2017-06-26
+ *
+ */
+require_once "../vendor/autoload.php";
 
-	use Matscode\Paystack\Transaction;
-	use Matscode\Paystack\Utility\Debug;
-	use Matscode\Paystack\Utility\Http;
+use Matscode\Paystack\Transaction;
+use Matscode\Utility\Debug;
+use Matscode\Utility\Http;
 
-	$secretKey = 'sk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+$secretKey = 'sk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
 
-	// creating the transaction object
-	$Transaction = new Transaction( $secretKey );
+// creating the transaction object
+$Transaction = new Transaction($secretKey);
 
-	// Set data to post using this method
-	/*
-	$response = $Transaction->initialize( [
-		'email'  => 'customer@email.com',
-		'amount' => 500000
-	] );
-	*/
+// Set data to post using this method
+/*
+$response = $Transaction->initialize( [
+    'email'  => 'customer@email.com',
+    'amount' => 500000
+] );
+*/
 
-	// OR
+// OR
 
-	$response =
-		$Transaction
-			->setEmail( 'matscode@gmail.com' )
-			->setAmount( 50 )
-			->initialize();
+$response =
+    $Transaction
+        ->setEmail('matscode@gmail.com')
+        ->setAmount(50)
+        ->initialize();
 
-	// print response
-	 Debug::print_r( $response );
+// print response
+Debug::print_r($response);
 
-	// save reference somewhere and do a redirect
-	 Http::redirect($response->authorizationUrl);
+// save reference somewhere and do a redirect
+Http::redirect($response->authorizationUrl);
 

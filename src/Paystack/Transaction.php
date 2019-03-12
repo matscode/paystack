@@ -14,7 +14,7 @@
 namespace Matscode\Paystack;
 
 
-use Matscode\Paystack\Utility\StringPlay;
+use Matscode\Utility\StringPlay;
 
 class Transaction extends Base
 {
@@ -83,11 +83,8 @@ class Transaction extends Base
             $this->email = $data['email'];
         }
 
-        $this->transactionResponse['initialize'] =
-            $this
-                ->setAction('initialize')
-                ->sendRequest($data);
-
+        $this->setAction('initialize');
+        $this->transactionResponse['initialize'] = $this->sendRequest($data);
 
         if ($rawResponse) {
             $response =
@@ -111,14 +108,14 @@ class Transaction extends Base
     }
 
     /**
-     * Is used to Check if a transaction is successful and return the transaction object datd
+     * Is used to Check if a transaction is successful and return the transaction object data
      *
      * @param null $reference
      *
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @todo Use session to keep reference temporary per transaction To enhance Transaction reference guessing.
      *
-     * @return mixed
-     * @throws \Exception
      */
     public function verify($reference = null)
     {
@@ -147,6 +144,7 @@ class Transaction extends Base
      * @param null $reference
      *
      * @return bool
+     * @throws \Exception
      */
     public function isSuccessful($reference = null)
     {
@@ -190,6 +188,7 @@ class Transaction extends Base
      * @param null $reference
      *
      * @return string|null
+     * @throws \Exception
      */
     public function getAuthorizationCode($reference = null)
     {

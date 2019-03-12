@@ -10,7 +10,7 @@
 	 *
 	 */
 
-	namespace Matscode\Paystack\Utility;
+	namespace Matscode\Utility;
 
 	class Http
 	{
