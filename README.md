@@ -1,5 +1,8 @@
 # matscode/paystack-php
 
+
+This currently repository development has been discontinued. Development of `v2.0.0` and above has now moved to [matscode/paystack-php-sdk](https://github.com/matscode/paystack-php-sdk) with new improved structure, documentation, demo and overall dev experience.
+
 #### TODO - RoadMap
 - `Use GuzzleHttp`
 - `Customers`
