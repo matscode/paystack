@@ -78,6 +78,7 @@ $response =
             ->setCallbackUrl('http://michaelakanji.com') // to override/set callback_url, it can also be set on your dashboard 
             ->setEmail( 'matscode@gmail.com' )
             ->setAmount( 75000 ) // amount is treated in Naira while using this method
+            ->setMetadata(['custom_field1' => 'value1', 'custom_field2' => 'value2'])
             ->initialize();
 ```
 If you want to get the 200OK raw Object as it is sent by Paystack, Set the 2nd argument of the `initialize()` to `true`, example below

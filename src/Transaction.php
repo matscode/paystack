@@ -22,6 +22,7 @@
 			$amount = 0,
 			$email = null,
 			$reference = null,
+			$metadata = null,
 			$transactionResponse =
 			[
 				'verify'     => null,
@@ -80,6 +81,12 @@
 			} else {
 				// save amount in memory
 				$this->email = $data['email'];
+			}
+
+
+			// add metadata if provided
+			if ( ! is_null( $this->metadata ) ) {
+				$data['metadata'] = $this->metadata;
 			}
 
 			$this->transactionResponse['initialize'] =
@@ -280,6 +287,21 @@
 		public function setCallbackUrl( $callbackUrl )
 		{
 			$this->_callbackUrl = $callbackUrl;
+
+			return $this;
+		}
+
+
+				/**
+		 * Sets the metadata
+		 *
+		 * @param array $metadata
+		 *
+		 * @return $this
+		 */
+		public function setMetadata( $metadata )
+		{
+			$this->metadata = $metadata;
 
 			return $this;
 		}
