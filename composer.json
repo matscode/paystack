@@ -3,7 +3,7 @@
     "description": "This package is for communicating with PAYSTACK API",
     "type": "library",
     "keywords": ["payment","paystack", "php"],
-    "license": "GNU GPLv3",
+    "license": "GPL-3.0-only",
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {"Matscode\\Paystack\\": "src/"}
